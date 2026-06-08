@@ -2,3 +2,6 @@ cd "C:\Users\OliverRh\Desktop\Schule\OneDrive - HTL Imst\5 Sem\Praxis Pos\WebSec
 
 node app_VULNERABLE.js  → http://localhost:3000
 node app_SECURE.js  → http://localhost:4000
+
+node app_OS_VULNERABLE.js -> http://localhost:3001/
+node app_OS_SECURE.js -> http://localhost:3002/
