@@ -4,7 +4,6 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// testuser fuer die demo
 const users = [
   { id: 1, username: "admin", password: "geheim123" },
   { id: 2, username: "max", password: "passwort" },
@@ -16,8 +15,6 @@ let comments = [
 ];
 
 function checkLogin(username, password) {
-  // so wuerde ein echter SQL query aussehen (unsicher!)
-  // SELECT * FROM users WHERE username='...' AND password='...'
   console.log("Query: SELECT * FROM users WHERE username='" + username + "' AND password='" + password + "'");
 
   if (username.includes("'--") || username.includes("' OR") || username.includes("' or")) {

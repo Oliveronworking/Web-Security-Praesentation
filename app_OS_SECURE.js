@@ -1,7 +1,3 @@
-/**
- * ✅ SECURE VARIANTE — Geschützt gegen OS Command Injection
- * Hier wird der Input validiert, bevor er das Terminal erreicht.
- */
 const express = require("express");
 const { exec } = require("child_process");
 const app = express();
@@ -13,7 +9,7 @@ function renderPage(body) {
     <html lang="de">
     <head>
         <meta charset="UTF-8">
-        <title>✅ SICHER - Command Injection Schutz</title>
+        <title>SICHER - Command Injection Schutz</title>
         <style>
             body { font-family: monospace; background: #001a00; color: #ccffcc; padding: 20px; }
             .card { background: #002d00; border: 1px solid #226622; padding: 16px; margin: 10px 0; border-radius: 4px; }
@@ -24,7 +20,7 @@ function renderPage(body) {
         </style>
     </head>
     <body>
-        <h1>✅ System-Ping (ABGESICHERT)</h1>
+        <h1>System-Ping (ABGESICHERT)</h1>
         ${body}
     </body>
     </html>`;
@@ -46,7 +42,7 @@ app.get("/", (req, res) => {
 app.post("/ping", (req, res) => {
     const { ip } = req.body;
 
-    // 🟢 SCHUTZWALL: Regulärer Ausdruck (Regex) für eine strikte IPv4-Validierung
+    // SCHUTZWALL: Regulärer Ausdruck (Regex) für eine strikte IPv4-Validierung
     // Erlaubt nur Zahlen und Punkte (z.B. 127.0.0.1). Alles andere wird blockiert!
     const ipv4Regex = /^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
 
@@ -54,7 +50,7 @@ app.post("/ping", (req, res) => {
         // Wenn die Eingabe KEINE reine IP-Adresse ist, wird die Ausführung blockiert!
         return res.send(renderPage(`
             <div class="error-card">
-                <h2>❌ Zugriff verweigert!</h2>
+                <h2>Zugriff verweigert!</h2>
                 <p>Möglicher Angriffsversuch erkannt oder ungültiges IP-Format.</p>
                 <p>Eingegebener Text: <strong>${ip}</strong></p>
                 <a href="/" style="color:#ff8888"><- Zurück</a>
@@ -62,7 +58,6 @@ app.post("/ping", (req, res) => {
         `));
     }
 
-    // Wenn der Regex-Test bestanden wurde, ist die Variable zu 100% sicher
     const isWindows = process.platform === "win32";
     const command = isWindows ? `ping -n 2 ${ip}` : `ping -c 2 ${ip}`;
 

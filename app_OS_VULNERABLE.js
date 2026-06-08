@@ -1,7 +1,3 @@
-/**
- * ⚠️ UNSECURE VARIANTE — OS Command Injection anfällig
- * Diese Datei zeigt, wie man es NICHT machen sollte.
- */
 const express = require("express");
 const { exec } = require("child_process");
 const app = express();
@@ -14,7 +10,7 @@ function renderPage(body) {
     <html lang="de">
     <head>
         <meta charset="UTF-8">
-        <title>⚠️ UNSICHER - Command Injection</title>
+        <title>UNSICHER - Command Injection</title>
         <style>
             body { font-family: monospace; background: #1a0000; color: #ffcccc; padding: 20px; }
             .card { background: #2d0000; border: 1px solid #662222; padding: 16px; margin: 10px 0; border-radius: 4px; }
@@ -24,7 +20,7 @@ function renderPage(body) {
         </style>
     </head>
     <body>
-        <h1>⚠️ System-Ping (UNSICHER)</h1>
+        <h1>System-Ping (UNSICHER)</h1>
         ${body}
     </body>
     </html>`;
@@ -46,7 +42,7 @@ app.get("/", (req, res) => {
 app.post("/ping", (req, res) => {
     const { ip } = req.body;
 
-    // 🔴 UNSICHER: Direkte Verkettung des Inputs mit dem Befehl
+    //UNSICHER: Direkte Verkettung des Inputs mit dem Befehl
     const isWindows = process.platform === "win32";
     const command = isWindows ? `ping -n 2 ${ip}` : `ping -c 2 ${ip}`;
 
