@@ -1,2 +1,4 @@
+cd "C:\Users\OliverRh\Desktop\Schule\OneDrive - HTL Imst\5 Sem\Praxis Pos\WebSecurityPräsi\livedemo\Web-Security-Praesentation"
+
 node app_VULNERABLE.js  → http://localhost:3000
 node app_SECURE.js  → http://localhost:4000
